@@ -4,8 +4,7 @@ class CurrencyCard extends StatelessWidget {
   final String name, code, amount;
   final IconData icon;
   final bool isInverted;
-  final double xOffset;
-  final double yOffset;
+  final Offset offset;
 
   final _blackColor = const Color(0xFF1F2123);
 
@@ -16,13 +15,12 @@ class CurrencyCard extends StatelessWidget {
       required this.amount,
       required this.icon,
       required this.isInverted,
-      required this.xOffset,
-      required this.yOffset});
+      required this.offset});
 
   @override
   Widget build(BuildContext context) {
     return Transform.translate(
-      offset: Offset(xOffset, yOffset),
+      offset: Offset(offset.dx, offset.dy),
       child: Container(
         clipBehavior: Clip.hardEdge,
         decoration: BoxDecoration(
